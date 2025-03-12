@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Movie from "./components/Movie";
 
 const movie_url = process.env.REACT_APP_MOVIE_URL;
 
@@ -29,19 +30,7 @@ function App() {
   return (
     <div>
       {loading ? <strong>Loading...</strong> : (
-        <ul>
-          {movies.map((movie) => (
-            <li key={movie.id}>
-              <div>
-                {movie.title}
-                <div>
-                  <img src={movie.medium_cover_image}></img>
-                </div>
-                <span>Rating: {movie.rating}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <Movie data={movies} />
       )}
     </div>
   );
