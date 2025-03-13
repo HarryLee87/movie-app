@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MovieProps } from "../entities/movie";
 
 interface MovieListProps {
@@ -10,7 +11,9 @@ export default function Movie({ data }: MovieListProps) {
             {data.map((movie) => (
                 <div key={movie.id}>
                     <img src={movie.medium_cover_image} />
-                    <h2>{movie.title}</h2>
+                    <h2>
+                        <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
+                    </h2>
                     <p>{movie.summary}</p>
                     <ul>
                         {movie.genres.map((g: string) => (
