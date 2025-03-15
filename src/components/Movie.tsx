@@ -14,7 +14,7 @@ export default function Movie({ data }: MovieListProps) {
                     <h2>
                         <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
                     </h2>
-                    <p>{movie.summary}</p>
+                    <p>{movie.summary.length > 235 ? `${movie.summary.slice(0, 235)}` : movie.summary}</p>
                     <ul>
                         {movie.genres.map((g: string) => (
                             <li key={g}>{g}</li>
